@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Happy Birthday Boudhika 🎉</title>
+
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220cc;
+      --accent:#ff6b6b;
+      --muted:#cbd5e1;
+      --glass: rgba(255,255,255,0.03);
+    }
+    html,body{height:100%;margin:0;font-family:Inter,Segoe UI,system-ui,Roboto,"Helvetica Neue",Arial;}
+    body{
+      background: linear-gradient(180deg,#071028 0%, #0b1b2f 60%, #08111f 100%);
+      color:var(--muted);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+      overflow:hidden;
+    }
+
+    /* Animation background */
+    .birthday-animation {
+      position:absolute;
+      top:0;left:0;width:100%;height:100%;
+      pointer-events:none;
+      overflow:hidden;
+      z-index:1;
+    }
+
+    /* Floating balloons */
+    .balloon {
+      position:absolute;
+      width:60px;height:80px;
+      background:radial-gradient(circle at 30% 30%, #ffe4e4, #ff6b6b);
+      border-radius:50% 50% 40% 40%;
+      animation: floatUp 8s infinite ease-in;
+      opacity:0.85;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(120%); opacity:0; }
+      10% { opacity:1; }
+      100% { transform: translateY(-150%); opacity:0; }
+    }
+
+    /* Glowing sparkles */
+    .sparkle {
+      position:absolute;
+      width:6px;height:6px;
+      background:rgba(255,255,255,0.9);
+      border-radius:50%;
+      animation: glow 3s infinite ease-in-out;
+    }
+
+    @keyframes glow {
+      0% { opacity:0.1; transform:scale(1); }
+      50% { opacity:0.9; transform:scale(1.8); }
+      100% { opacity:0.1; transform:scale(1); }
+    }
+
+    /* Container */
+    .container{
+      width:100%;
+      max-width:900px;
+      min-height:600px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:14px;
+      box-shadow: 0 10px 40px rgba(2,6,23,0.7);
+      overflow:hidden;
+      position:relative;
+      z-index:3;
+    }
+
+    .pages {
+      display:flex;
+      width:400%;
+      transition: transform 450ms cubic-bezier(.2,.9,.2,1);
+      height:100%;
+    }
+
+    .page {
+      width:100%;
+      padding:48px;
+      box-sizing:border-box;
+      display:flex;
+      gap:28px;
+      align-items:center;
+      position:relative;
+    }
+
+    .card{
+      flex:1 1 55%;
+      background: var(--card);
+      border-radius:12px;
+      padding:26px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.02), 0 6px 20px rgba(2,6,23,0.6);
+      backdrop-filter: blur(6px);
+    }
+
+    .media{
+      flex:1 1 40%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    h1,h2{
+      margin:0 0 12px 0;
+      color: #fff;
+      letter-spacing: -0.3px;
+      z-index:3;
+      position:relative;
+    }
+    p { margin:0 0 12px 0; line-height:1.5; color:var(--muted); font-size:1.05rem; }
+    .poem { white-space:pre-wrap; font-style:italic; font-size:1.05rem; color:#f8fafc; }
+
+    .nav {
+      position:absolute;
+      right:18px;
+      top:18px;
+      display:flex;
+      gap:8px;
+      z-index:5;
+    }
+    .btn{
+      background:var(--glass);
+      border:1px solid rgba(255,255,255,0.03);
+      color:var(--muted);
+      padding:8px 12px;
+      border-radius:8px;
+      cursor:pointer;
+      font-weight:600;
+    }
+
+    .dotbar{ position:absolute; left:18px; top:18px; display:flex; gap:8px; z-index:5; }
+    .dot{ width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.03); }
+    .dot.active{ background:var(--accent); box-shadow:0 0 14px rgba(255,107,107,0.25); }
+
+    video{
+      width:100%;
+      max-width:420px;
+      border-radius:10px;
+      box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+      background:#000;
+    }
+
+    .page-number{
+      position:absolute;
+      bottom:12px;
+      right:18px;
+      color:rgba(255,255,255,0.6);
+      font-weight:600;
+      font-size:0.95rem;
+      z-index:5;
+    }
+
+    @media (max-width:880px){
+      .page{ flex-direction:column; padding:26px; }
+      .card, .media{ width:100%; }
+      video{ max-width:100%; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Birthday animation layer -->
+  <div class="birthday-animation" id="animLayer"></div>
+
+  <div class="container" id="container">
+    <div class="dotbar" id="dotbar">
+      <div class="dot active" data-index="0"></div>
+      <div class="dot" data-index="1"></div>
+      <div class="dot" data-index="2"></div>
+      <div class="dot" data-index="3"></div>
+    </div>
+
+    <div class="nav">
+      <button class="btn" id="prevBtn">◀ Prev</button>
+      <button class="btn" id="nextBtn">Next ▶</button>
+    </div>
+
+    <div class="pages" id="pages">
+
+      <!-- Page 1 -->
+      <section class="page" data-page="1">
+        <div class="card">
+          <h1 style="font-size:2rem;color:#fff;text-shadow:0 0 12px rgba(255,255,255,0.6);">
+            🎉 Happy Birthday, Boudhika! 🎉
+          </h1>
+          <p>You deserve a day full of love, laughter, glow, and happiness.  
+          Swipe or press NEXT to see the poems and videos made just for you.</p>
+
+          <p style="margin-top:18px">
+            <strong>From:</strong>
+            <span style="color:var(--accent)">someone who thinks you're truly special ✨</span>
+          </p>
+        </div>
+
+        <div class="media">
+          <div style="width:260px;height:260px;border-radius:14px;background:linear-gradient(135deg,#ff9a9e,#fecfef);display:flex;align-items:center;justify-content:center;color:#08111f;font-weight:800;font-size:20px;box-shadow:0 14px 40px rgba(2,6,23,0.5);">
+            Boudhika
+          </div>
+        </div>
+      </section>
+
+      <!-- Page 2 -->
